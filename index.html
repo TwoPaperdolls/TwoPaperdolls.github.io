@@ -1,0 +1,399 @@
+<!doctype html>
+
+<!--
+	HTML5 Reset: https://github.com/murtaugh/HTML5-Reset
+	Free to use
+-->
+
+<!--[if lt IE 7 ]> <html class="ie ie6 ie-lt10 ie-lt9 ie-lt8 ie-lt7 no-js" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7 ie-lt10 ie-lt9 ie-lt8 no-js" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8 ie-lt10 ie-lt9 no-js" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9 ie-lt10 no-js" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<!-- the "no-js" class is for Modernizr. -->
+
+<head>
+
+	<meta charset="utf-8">
+	
+	<title>TBPP - Birthday in a box</title>
+
+	<!-- Always force latest IE rendering engine (even in intranet) -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<!-- Important stuff for SEO, don't neglect. (And don't dupicate values across your site!) -->
+	<title></title>
+	<meta name="author" content="" />
+	<meta name="description" content="" />
+
+	<!-- Don't forget to set your site up: http://google.com/webmasters -->
+	<meta name="google-site-verification" content="" />
+
+	<!-- Who owns the content of this site? -->
+	<meta name="Copyright" content="" />
+
+	<!--  Mobile Viewport
+	http://j.mp/mobileviewport & http://davidbcalhoun.com/2010/viewport-metatag
+	device-width : Occupy full width of the screen in its current orientation
+	initial-scale = 1.0 retains dimensions instead of zooming out if page height > device height
+	maximum-scale = 1.0 retains dimensions instead of zooming in if page width < device width (wrong for most sites)
+	-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- concatenate and minify for production -->
+	<link rel="stylesheet" href="assets/css/style.css?v=2" />
+
+	<!-- Lea Verou's prefixfree (http://leaverou.github.io/prefixfree/), lets you use un-prefixed properties in your CSS files -->
+	<script src="assets/js/libs/prefixfree.min.js"></script>
+
+	<!-- This is an un-minified, complete version of Modernizr. (http://modernizr.com)
+		 Before you move to production, you should generate a custom build that only has the detects you need. -->
+	<script src="assets/js/libs/modernizr-2.8.3.dev.js"></script>
+
+	<link rel="icon" sizes="16x16 32x32" href="assets/img/favicon.png?v=2">
+
+	<!-- Twitter: see https://dev.twitter.com/docs/cards/types/summary-card for details -->
+	<meta name="twitter:card" content="">
+	<meta name="twitter:site" content="">
+	<meta name="twitter:title" content="">
+	<meta name="twitter:description" content="">
+	<meta name="twitter:url" content="">
+	<!-- Facebook (and some others) use the Open Graph protocol: see http://ogp.me/ for details -->
+	<meta property="og:title" content="" />
+	<meta property="og:description" content="" />
+	<meta property="og:url" content="" />
+	<meta property="og:image" content="" />
+
+</head>
+
+<body>
+
+<!--[if lte IE 9]>
+<style type="text/css">
+	.coming-soon-container{
+		margin-top:300px;
+	}	
+</style>
+<![endif]-->
+<canvas id="canvas"></canvas>	
+<div class="content-wrapper">
+	<h1>Birthday</h1>
+	<h2>
+		in a box<span>!</span>	
+	</h2>
+	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 31 37.5" xml:space="preserve"><g transform="translate(-390 -380)"><g xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M410.162,383l-4.661,2.689H405.5h-0.001L400.838,383l-9.957,5.748l4.662,2.692l-4.662,2.693L396,397.09v4.998l9.5,5.484    l9.5-5.484v-4.999l5.119-2.955l-4.662-2.693l4.662-2.692L410.162,383z M392.88,388.749l7.958-4.595l3.66,2.113l-7.958,4.595    L392.88,388.749z M392.88,394.132l3.66-2.113l7.958,4.596l-3.66,2.113L392.88,394.132z M405,406.129l-8-4.618v-3.845l3.838,2.216    L405,397.48l0.001-0.001L405,406.129z M397.54,391.44l7.96-4.595l7.96,4.595l-7.96,4.595L397.54,391.44z M414,401.511l-8,4.618    v-8.648l4.162,2.401l3.838-2.216V401.511z M418.12,394.132l-7.958,4.596l-3.66-2.113l7.958-4.596L418.12,394.132z M414.46,390.862    l-7.958-4.595l3.66-2.113l7.958,4.595L414.46,390.862z"/></g></g></svg>
+	<p class="callout"><em>Our hope is that every child, despite their living conditions, can feel celebrated on their birthday!</em></p>
+	<p>When you sponsor a Birthday in a Box, we will deliver it to foster care communities and child protective services so that kids can still experience the power of a celebration!</p>
+	<p>Each box provides case managers with all the supplies necessary to throw a rockin' party for their kiddos! This box is meant to be a fun keepsake for the birthday child!</p>
+	<p>Thanks to our friends Gifts for the Good Life for designing these boxes!</p>
+	<a class="btn">sponsor a box!</a>
+</div>
+
+<!-- Grab Google CDN's jQuery. fall back to local if necessary -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>window.jQuery || document.write("<script src='assets/js/libs/jquery-1.11.3.min.js'>\x3C/script>")</script>
+
+<script>
+/*global jQuery */
+/*!
+* Lettering.JS 0.7.0
+*
+* Copyright 2010, Dave Rupert http://daverupert.com
+* Released under the WTFPL license
+* http://sam.zoy.org/wtfpl/
+*
+* Thanks to Paul Irish - http://paulirish.com - for the feedback.
+*
+* Date: Mon Sep 20 17:14:00 2010 -0600
+*/
+(function($){
+	function injector(t, splitter, klass, after) {
+		var text = t.text()
+		, a = text.split(splitter)
+		, inject = '';
+		if (a.length) {
+			$(a).each(function(i, item) {
+				inject += '<span class="'+klass+(i+1)+'" aria-hidden="true">'+item+'</span>'+after;
+			});
+			t.attr('aria-label',text)
+			.empty()
+			.append(inject)
+
+		}
+	}
+
+
+	var methods = {
+		init : function() {
+
+			return this.each(function() {
+				injector($(this), '', 'char', '');
+			});
+
+		},
+
+		words : function() {
+
+			return this.each(function() {
+				injector($(this), ' ', 'word', ' ');
+			});
+
+		},
+
+		lines : function() {
+
+			return this.each(function() {
+				var r = "eefec303079ad17405c889e092e105b0";
+				// Because it's hard to split a <br/> tag consistently across browsers,
+				// (*ahem* IE *ahem*), we replace all <br/> instances with an md5 hash
+				// (of the word "split").  If you're trying to use this plugin on that
+				// md5 hash string, it will fail because you're being ridiculous.
+				injector($(this).children("br").replaceWith(r).end(), r, 'line', '');
+			});
+
+		}
+	};
+
+	$.fn.lettering = function( method ) {
+		// Method calling logic
+		if ( method && methods[method] ) {
+			return methods[ method ].apply( this, [].slice.call( arguments, 1 ));
+		} else if ( method === 'letters' || ! method ) {
+			return methods.init.apply( this, [].slice.call( arguments, 0 ) ); // always pass an array
+		}
+		$.error( 'Method ' +  method + ' does not exist on jQuery.lettering' );
+		return this;
+	};
+
+})(jQuery);
+
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
+
+<!-- MY STUFF -->
+<script>
+
+	$(document).ready(function() {
+	    $("h1").lettering();
+
+	    canvas = document.getElementById("canvas");
+		context = canvas.getContext("2d");
+		width = canvas.width = window.innerWidth;
+		height = canvas.height = window.innerHeight;
+
+
+		// création d'un tableau
+		particle = [];
+		particleCount = 0,
+		gravity = 0.3,
+		    colors = [
+		      '#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5',
+		      '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4CAF50',
+		      '#8BC34A', '#CDDC39', '#FFEB3B', '#FFC107', '#FF9800',
+		      '#FF5722', '#795548'
+		    ];
+
+
+
+					for( var i = 0; i < 200; i++){
+
+		particle.push({
+			x : width/2,
+			y : height/2,
+			boxW : randomRange(5,10),
+			boxH : randomRange(5,10),
+			size : randomRange(4,8),
+			
+			spikeran:randomRange(3,5),
+			
+			velX :randomRange(-6,6),
+			velY :randomRange(-16,-5),
+			
+			angle :convertToRadians(randomRange(0,360)),
+			color:colors[Math.floor(Math.random() * colors.length)],
+			anglespin:randomRange(-0.2,0.2),
+			
+			draw : function(){
+			
+			
+				context.save();
+		            context.translate(this.x,this.y);
+		            context.rotate(this.angle);
+				context.fillStyle=this.color;
+				context.beginPath();
+				// drawStar(0, 0, 5, this.boxW, this.boxH);
+			context.fillRect(this.boxW/2*-1,this.boxH/2*-1,this.boxW,this.boxH);
+				context.fill();
+						context.closePath();
+				context.restore();
+			this.angle += this.anglespin;
+		    this.velY*= 0.999;
+			this.velY += 0.3;
+		  
+		    this.x += this.velX;
+		    this.y += this.velY;
+				if(this.y < 0){
+			this.velY *= -0.2;
+				this.velX *= 0.9;
+			};
+			if(this.y > height){
+			this.anglespin = 0;
+			this.y = height;
+			this.velY *= -0.2;
+				this.velX *= 0.9;
+			};
+				if(this.x > width ||this.x< 0){
+
+			this.velX *= -0.5;
+			};
+			
+			
+			
+			},
+
+
+
+				
+			});
+
+		}
+		r1={
+		x:width/2-150,
+		y:height/2-150,
+		width:300,
+		height:300,
+			velX :0,
+			velY :-10,
+		 img : loadImage(""),
+		 alphatop:0
+		};
+
+
+		function drawScreen(){
+		size = 50;
+					pFontName = "Lucida Sans Unicode";
+					context.font = size + "pt " + pFontName;
+					context.fillText("", width/2,150 );
+				if(r1.alphatop < 1){
+				r1.alphatop += 0.01;
+				}else{
+				r1.alphatop = 1;
+				}
+				context.globalAlpha = r1.alphatop; 
+					context.drawImage(r1.img,r1.x,r1.y);
+					      context.textAlign = 'center';
+
+					
+					
+					if(r1.alphatop === 1){
+		    r1.velY*= 0.999;
+			r1.velY += 0.3;
+		  
+		    r1.x += r1.velX;
+		    r1.y += r1.velY;}
+
+				if(r1.y + r1.height > height){
+			r1.anglespin = 0;
+			r1.y = height - r1.height;
+			r1.velY *= -0.8;
+				r1.velX *= 0.9;
+			};
+			
+			
+					context.globalAlpha = 1; 
+				for( var i = 0; i < particle.length; i++){
+					particle[i].draw();
+
+						}
+						
+						
+		}
+
+			function loadImage(url){
+				var img = document.createElement("img");
+				img.src=url;
+				return img;
+			}
+
+		function update(){
+
+
+		context.clearRect(0,0,width,height);
+
+		drawScreen();
+
+		requestAnimationFrame(update);
+		}
+
+		update();
+
+
+		function randomRange(min, max){
+			return min + Math.random() * (max - min );
+		}
+
+		function randomInt(min, max){
+			return Math.floor(min + Math.random()* (max - min + 1));
+		}
+
+		       function convertToRadians(degree) {
+		            return degree*(Math.PI/180);
+		        }
+				
+				function drawStar(cx, cy, spikes, outerRadius, innerRadius,color) {
+		    var rot = Math.PI / 2 * 3;
+		    var x = cx;
+		    var y = cy;
+		    var step = Math.PI / spikes;
+
+		    context.strokeSyle = "#000";
+		    context.beginPath();
+		    context.moveTo(cx, cy - outerRadius)
+		    for (i = 0; i < spikes; i++) {
+		        x = cx + Math.cos(rot) * outerRadius;
+		        y = cy + Math.sin(rot) * outerRadius;
+		        context.lineTo(x, y)
+		        rot += step
+
+		        x = cx + Math.cos(rot) * innerRadius;
+		        y = cy + Math.sin(rot) * innerRadius;
+		        context.lineTo(x, y)
+		        rot += step
+		    }
+		    context.lineTo(cx, cy - outerRadius)
+		    context.closePath();
+		    context.fillStyle=color;
+		    context.fill();
+
+		}		
+
+	  });
+
+
+
+
+</script>
+
+<!-- this is where we put our custom functions -->
+<!-- don't forget to concatenate and minify for production -->
+<script src="assets/js/functions.js"></script>
+<script>$(document).ready(initPage);</script>
+
+<!-- Asynchronous google analytics; this is the official snippet.
+	 Replace UA-XXXXXX-XX with your site's ID and uncomment to enable.
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-XXXXXX-XX', 'auto');
+  ga('send', 'pageview');
+
+</script>
+-->
+
+</body>
+</html>
